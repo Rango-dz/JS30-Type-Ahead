@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n//# sourceURL=webpack://chapter_19/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\nvar endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';\n\nvar searchIt = function searchIt() {\n  return new Promise(function (resolve, reject) {\n    var request = new XMLHttpRequest();\n    request.addEventListener('readystatechange', function (e) {\n      if (e.target.readystate === 4 || e.target.status === 200) {\n        var data = JSON.parse(e.target.responseText);\n        resolve(data);\n      } else if (e.target.readystate === 4) {\n        reject('error occured at xmlhttprequest level');\n      }\n    });\n    request.open('GET', endpoint);\n    request.send();\n  });\n};\n\nsearchIt().then(function (data) {\n  console.log(data);\n}), function (error) {\n  console.log(\"Error: \".concat(error));\n};\n\n//# sourceURL=webpack://chapter_19/./src/index.js?");
 
 /***/ }),
 
